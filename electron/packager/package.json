@@ -5,9 +5,10 @@
   "description": "Packager for the Arduino IDE electron application",
   "main": "index.js",
   "scripts": {
-    "prepare": "yarn test",
+    "prepare": "yarn run snyk-protect && yarn test",
     "package": "node index.js",
-    "test": "mocha \"./test/**/*.test.js\""
+    "test": "mocha \"./test/**/*.test.js\"",
+    "snyk-protect": "snyk-protect"
   },
   "keywords": [],
   "author": "Arduino SA",
@@ -28,7 +29,8 @@
     "sinon": "^9.0.1",
     "shelljs": "^0.8.3",
     "temp": "^0.9.1",
-    "yargs": "^12.0.5"
+    "yargs": "^12.0.5",
+    "@snyk/protect": "latest"
   },
   "engines": {
     "node": ">=12.14.1 <13"
@@ -38,5 +40,6 @@
     "colors": true,
     "watch-extensions": "js",
     "timeout": 10000
-  }
+  },
+  "snyk": true
 }
